@@ -1,0 +1,4 @@
+microsoft-edge-dev-bin/src
+microsoft-edge-dev-bin/pkg
+microsoft-edge-dev-bin/*.deb
+microsoft-edge-dev-bin/*.tar.zst
