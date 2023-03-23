@@ -14,14 +14,14 @@ def main():
         matches.sort(key=lambda x: datetime.strptime(x[1], "%d-%b-%Y %H:%M"), reverse=True)
         # get the version of the latest file
         latest_version = matches[0][0].split("_")[1].split("-")[0]
-        # change the pkgver in the PKGBUILD in ../../microsoft-edge-dev-bin
-        with open("../../microsoft-edge-dev-bin/PKGBUILD", "r") as f:
+        # change the pkgver in the PKGBUILD in ./microsoft-edge-dev-bin
+        with open("./microsoft-edge-dev-bin/PKGBUILD", "r") as f:
             lines = f.readlines()
             for i, line in enumerate(lines):
                 if line.startswith("pkgver="):
                     lines[i] = f"pkgver={latest_version}\n"
         # write lines to the file
-        with open("../../microsoft-edge-dev-bin/PKGBUILD", "w") as f:
+        with open("./microsoft-edge-dev-bin/PKGBUILD", "w") as f:
             f.writelines(lines)
 
 if __name__ == "__main__":

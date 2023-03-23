@@ -2,7 +2,7 @@ name: Daily Python Script
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at midnight UTC
+    - cron: '0 0 * * 0' # Runs every week at sunday midnight UTC
 
 jobs:
   run-script:
@@ -15,6 +15,6 @@ jobs:
         with:
           python-version: '3.9'
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r ./.github/workflows/requirements.txt
       - name: Run script
-        run: python run.py
+        run: python ./.github/workflows/run.py
