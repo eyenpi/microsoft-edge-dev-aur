@@ -2,7 +2,7 @@ name: Daily Python Script
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Runs every week at sunday midnight UTC
+    - cron: '0 0 * * 1' # Runs every week at sunday midnight UTC
 
 jobs:
   run-script:
@@ -18,3 +18,7 @@ jobs:
         run: pip install -r ./.github/workflows/requirements.txt
       - name: Run script
         run: python ./.github/workflows/run.py
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "edge version updated"
